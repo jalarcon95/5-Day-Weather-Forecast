@@ -22,3 +22,22 @@ var loadCities = function() {
     }
 }
 
+var saveCities = function() {
+    localStorage.setItem("cities", JSON.stringify(cities));
+}
+
+var displaySearchedCities = function(city) {
+    var cityCardEl = document.createElement("div");
+    cityCardEl.setAttribute("class", "card");
+    var cityCardNameEl = document.createElement("div");
+    cityCardNameEl.setAttribute("clas", "card-body searched-city");
+    cityCardNameEl.textContent = city;
+
+    cityCardEl.appendChild(cityCardNameEl)
+
+    cityCardEl.addEventListener("click", function() {
+        getCityDate(city)
+    });
+
+    searchHistoryEl.appendChild(cityCardEl)
+}
