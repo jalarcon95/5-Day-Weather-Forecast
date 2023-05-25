@@ -17,5 +17,5 @@ Created function to save search data for quick search and better user experience
 
 ## Screenshot
 
-
+![screenshot](/assets/images/_Users_jalar_bootcamp_5-Day-Weather-Forecast_index.html.png)
 
