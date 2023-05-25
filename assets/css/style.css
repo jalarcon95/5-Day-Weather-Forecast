@@ -1,0 +1,18 @@
+body {
+    background: rgb(243, 239, 239);
+}
+
+.h1 {
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.searched-city {
+    background: rgb(243, 239, 239);
+}
+
+.searched-city:hover {
+
+    background-color: lightblue;
+}
