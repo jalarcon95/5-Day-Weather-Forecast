@@ -96,3 +96,48 @@ var displayCurrentData = function(city, data) {
     currentContainerEl.appendChild(divCurrent);
 
 };
+
+var   displayForecastData = function(data) {
+    console.log(data)
+
+    forecastContainerEl.textContent = "";
+    var forecastHeaderEl = document.getElementById("five-day");
+    forecastHeaderEl.textContent = "5-Day Forecast:"
+
+    for (var i=1; i < 6; i++) {
+        var tempForecast = Math.round(data.daily[i].temp.day);
+        var humidityForecast = data.daily[i].humidity;
+        var iconForecast = data.daily[i].weather[0].icon;
+
+    var cardEl = document.createElement("div");
+    cardEl.setAtrribute("class", "card col-xl-2 col-md-5 col-sm-10 mx-3 my-2 bg-primary text-white text-center");
+
+    var cardBodyEl = document.createElement("div");
+    cardBodyEl.setAttribute("class", "card-body");
+
+    var cardDateEl = document.createElement("h6");
+    cardDateEl.textContent = moment().add(i, 'days').format("L");
+
+    var cardIconEl = document.createElement("img");
+    cardIconEl.setAttribute("src", "https://openweathermap.org/img/wn/" + iconForecast + "@2x.png")
+
+    var cardTempEl = document.createElement("p");
+    cardTempEl.setAttribute("class", "card-text");
+    cardTempEl.textContent = "Temperature: " + tempForecast + "°F";
+
+    var cardHumidEl = document.createElement("p")
+    cardHumidEl.setAttribute("class", "card-text");
+    cardHumidEl.textContent = "Humidity: " + humidityForecast + "%";
+
+    cardBodyEl.appendChild(cardDateEl)
+    cardBodyEl.appendChild(cardIconEl)
+    cardBodyEl.appendChild(cardTempEl)
+    cardBodyEl.appendChild(cardHumidEl)
+
+    cardEl.appendChild(cardBodyEl);
+    forecastContainerEl.appendChild(cardEl);
+
+    cityFormEl.reset()
+    }
+
+};
